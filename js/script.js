@@ -1,16 +1,16 @@
 chrome.omnibox.onInputChanged.addListener(function (q) {
   var el = document.createElement('span');
   document.body.appendChild(el);
-  var updateElement = function() {
+  var updateElement = function(q) {
     var offset = Math.floor(Math.random() * 50);
     var duration = Math.floor(Math.random() * 10);
     var size = 15 + 10 - duration;
     el.innerHTML = '<span style="right:'+offset+'vw; font-size: '+size+'px; animation-duration:'+duration+'s">'+q.slice(-1)+'</span>';
     setTimeout(function () {
-      updateElement();
+      updateElement(q);
     }, duration * 1000);
   };
-  updateElement();
+  updateElement(q);
 });
 
 chrome.omnibox.onInputEntered.addListener(function (q) {
