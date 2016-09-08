@@ -58,12 +58,16 @@ var tab = {
     var timeoutId;
     document.body.addEventListener('mousedown', function () {
       timeoutId = window.setTimeout(function () {
-        var el = document.getElementById('settings');
-        el.style.display = 'flex';
+        document.getElementById('settings').style.display = 'flex';
       }, 500);
     });
     document.body.addEventListener('mouseup', function () {
       window.clearTimeout(timeoutId);
+    });
+    document.getElementById('btn').addEventListener('click', function () {
+      window.localStorage.setItem('brandingImage', document.getElementById('brandingImage').value);
+      window.localStorage.setItem('backgroundColor', document.getElementById('backgroundColor').value);
+      document.getElementById('settings').style.display = 'none';
     });
   },
 
