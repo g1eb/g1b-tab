@@ -6,7 +6,12 @@ G1B Tab Extension for Google Chrome
 ([view extension in chrome web store](https://chrome.google.com/webstore/detail/g1b/nnddcgoiijlgjmeeodhhbebcjlmgdnnh))
 
 Change your "New Tab" into an aesthetic digital piece of eye candy.  
-Does not effect typical google search functionality on submit.  
-Use backslash as keyword to trigger text animations.
+Does not change typical google search functionality of the address bar.  
+Use backslash as keyword to trigger text animation of search queries.
+
+```
+Controls:
+- Long press to set background color and/or branding image.
+```
 
 ----------------------------------------------------------------
