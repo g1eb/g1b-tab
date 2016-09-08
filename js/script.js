@@ -45,11 +45,26 @@ var tab = {
       document.body.appendChild(el);
     }
 
+    tab.setClickListener();
+
     tab.setOmniboxListeners();
   },
 
   setBackgroundColor: function (color) {
     document.body.style.backgroundColor = color;
+  },
+
+  setClickListener: function () {
+    var timeoutId;
+    document.body.addEventListener('mousedown', function () {
+      timeoutId = window.setTimeout(function () {
+        var el = document.getElementById('settings');
+        el.style.display = 'flex';
+      }, 500);
+    });
+    document.body.addEventListener('mouseup', function () {
+      window.clearTimeout(timeoutId);
+    });
   },
 
   setOmniboxListeners: function () {
