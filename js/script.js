@@ -29,29 +29,31 @@ var tab = {
   brandingImage: window.localStorage.getItem('brandingImage'),
 
   init: function () {
-
-    if ( tab.backgroundColor ) {
-      tab.setBackgroundColor(tab.backgroundColor);
-    } else {
-      tab.setBackgroundColor(tab.htmlColorCodes[Math.floor(Math.random() * tab.htmlColorCodes.length)]);
-      window.setInterval(function () {
-        tab.setBackgroundColor(tab.htmlColorCodes[Math.floor(Math.random() * tab.htmlColorCodes.length)]);
-      }, tab.backgroundColorInterval);
-    }
-
-    if ( tab.brandingImage ) {
-      var el = document.createElement('img');
-      el.src = tab.brandingImage;
-      document.body.appendChild(el);
-    }
-
-    tab.setClickListener();
-
+    tab.setBackgroundColor(tab.backgroundColor);
+    tab.setBrandingImage(tab.brandingImage);
     tab.setOmniboxListeners();
+    tab.setClickListener();
   },
 
   setBackgroundColor: function (color) {
-    document.body.style.backgroundColor = color;
+    if ( color ) {
+      document.body.style.backgroundColor = color;
+    } else {
+      document.body.style.backgroundColor = tab.htmlColorCodes[Math.floor(Math.random() * tab.htmlColorCodes.length)];
+      window.setInterval(function () {
+        document.body.style.backgroundColor = tab.htmlColorCodes[Math.floor(Math.random() * tab.htmlColorCodes.length)];
+      }, tab.backgroundColorInterval);
+    }
+  },
+
+  setBrandingImage: function (image) {
+    var el = document.getElementById('branding');
+    if ( image ) {
+      el.src = image;
+      el.style.display = 'block';
+    } else {
+      el.style.display = 'none';
+    }
   },
 
   setClickListener: function () {
@@ -65,10 +67,23 @@ var tab = {
       window.clearTimeout(timeoutId);
     });
     document.getElementById('btn').addEventListener('click', function () {
-      window.localStorage.setItem('brandingImage', document.getElementById('brandingImage').value);
-      window.localStorage.setItem('backgroundColor', document.getElementById('backgroundColor').value);
+      tab.updateSettings(
+        document.getElementById('backgroundColor').value,
+        document.getElementById('brandingImage').value
+      );
       document.getElementById('settings').style.display = 'none';
     });
+  },
+
+  updateSettings: function (color, image) {
+    if ( tab.backgroundColor !== color ) {
+      window.localStorage.setItem('backgroundColor', color);
+      tab.setBackgroundColor(color);
+    }
+    if ( tab.brandingImage !== image ) {
+      window.localStorage.setItem('brandingImage', image);
+      tab.setBrandingImage(image);
+    }
   },
 
   setOmniboxListeners: function () {

@@ -17,9 +17,10 @@ body {
   transition: background-color 5s ease-out;
 }
 
-img {
+#branding {
   width: auto;
   height: 100px;
+  display: none;
   position: fixed;
   bottom: 50px;
   right: 50px;
