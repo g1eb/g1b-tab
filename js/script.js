@@ -26,6 +26,8 @@ var tab = {
 
   backgroundColorInterval: window.localStorage.getItem('backgroundColorInterval') || 60000,
 
+  brandingImage: window.localStorage.getItem('brandingImage'),
+
   init: function () {
 
     if ( tab.backgroundColor ) {
@@ -35,6 +37,12 @@ var tab = {
       window.setInterval(function () {
         tab.setBackgroundColor(tab.htmlColorCodes[Math.floor(Math.random() * tab.htmlColorCodes.length)]);
       }, tab.backgroundColorInterval);
+    }
+
+    if ( tab.brandingImage ) {
+      var el = document.createElement('img');
+      el.src = tab.brandingImage;
+      document.body.appendChild(el);
     }
 
     tab.setOmniboxListeners();
