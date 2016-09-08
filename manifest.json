@@ -17,7 +17,6 @@
     "web_accessible_resources": [
         "js/script.js",
         "css/styles.css",
-        "images/g1b.svg",
         "images/icon.png"
     ]
  }
