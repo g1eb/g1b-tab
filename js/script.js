@@ -22,11 +22,11 @@ var tab = {
     'gainsboro', 'lightgray', 'silver', 'darkgray', 'gray', 'dimgray', 'lightslategray', 'slategray', 'darkslategray', 'black',
   ],
 
-  backgroundColor: window.localStorage.getItem('backgroundColor'),
+  backgroundColor: window.localStorage.getItem('g1b.newTab.backgroundColor'),
 
-  backgroundColorInterval: window.localStorage.getItem('backgroundColorInterval') || 60000,
+  backgroundColorInterval: window.localStorage.getItem('g1b.newTab.backgroundColorInterval') || 60000,
 
-  brandingImage: window.localStorage.getItem('brandingImage'),
+  brandingImage: window.localStorage.getItem('g1b.newTab.brandingImage'),
 
   init: function () {
     tab.setBackgroundColor(tab.backgroundColor);
@@ -77,11 +77,11 @@ var tab = {
 
   updateSettings: function (color, image) {
     if ( tab.backgroundColor !== color ) {
-      window.localStorage.setItem('backgroundColor', color);
+      window.localStorage.setItem('g1b.newTab.backgroundColor', color);
       tab.setBackgroundColor(color);
     }
     if ( tab.brandingImage !== image ) {
-      window.localStorage.setItem('brandingImage', image);
+      window.localStorage.setItem('g1b.newTab.brandingImage', image);
       tab.setBrandingImage(image);
     }
   },
