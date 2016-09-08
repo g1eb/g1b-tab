@@ -24,7 +24,7 @@ var tab = {
 
   backgroundColor: window.localStorage.getItem('backgroundColor'),
 
-  backgroundColorInterval: 60000,
+  backgroundColorInterval: window.localStorage.getItem('backgroundColorInterval') || 60000,
 
   init: function () {
 
