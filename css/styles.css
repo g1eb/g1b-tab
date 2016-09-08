@@ -9,11 +9,12 @@ html {
 body {
   cursor: default;
   color: whitesmoke;
-  background: #111111;
   font-family: 'Helvetica';
   text-shadow: 0 0 1px white;
   font-size: 18px;
   -webkit-user-select: none;
+  will-change: backgrond-color;
+  transition: background-color 5s ease-out;
 }
 
 img {
