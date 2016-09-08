@@ -32,7 +32,7 @@ var tab = {
     tab.setBackgroundColor(tab.backgroundColor);
     tab.setBrandingImage(tab.brandingImage);
     tab.setOmniboxListeners();
-    tab.setClickListener();
+    tab.setClickListeners();
   },
 
   setBackgroundColor: function (color) {
@@ -56,7 +56,7 @@ var tab = {
     }
   },
 
-  setClickListener: function () {
+  setClickListeners: function () {
     var timeoutId;
     document.body.addEventListener('mousedown', function () {
       timeoutId = window.setTimeout(function () {
@@ -65,6 +65,11 @@ var tab = {
     });
     document.body.addEventListener('mouseup', function () {
       window.clearTimeout(timeoutId);
+    });
+    document.body.addEventListener('keyup', function (e) {
+      if ( e.keyCode === 27 ) {
+        document.getElementById('settings').style.display = 'none';
+      }
     });
     document.getElementById('btn').addEventListener('click', function () {
       tab.updateSettings(
