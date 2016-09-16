@@ -112,3 +112,16 @@ div#settings .btn--save:hover {
   border: 1px solid #000000;
   background-color: rgba(0, 255, 0, 0.5);
 }
+
+div#settings .btn--close {
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 24px;
+  line-height: 24px;
+  color: #999999;
+}
+div#settings .btn--close:hover {
+  color: #000000;
+}
