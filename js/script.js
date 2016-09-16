@@ -35,8 +35,8 @@ var tab = {
   init: function () {
     tab.setBackgroundColor(tab.backgroundColor);
     tab.setBrandingImage(tab.brandingImage);
-    tab.setOmniboxListeners();
     tab.setClickListeners();
+    tab.initAnimation();
   },
 
   setBackgroundColor: function (color) {
@@ -120,27 +120,21 @@ var tab = {
     }
   },
 
-  setOmniboxListeners: function () {
-    chrome.omnibox.onInputChanged.addListener(function (q) {
-      var el = document.createElement('span');
-      document.body.appendChild(el);
-      var updateElement = function(q) {
+  initAnimation: function () {
+    window.setInterval(function () {
+      for ( var i = 0; i < Math.floor(Math.random() * 15); i++ ) {
+        var element = document.createElement('span');
+        document.body.appendChild(element);
+        var character = tab.chars[Math.floor(Math.random() * tab.chars.length)];
         var offset = Math.floor(Math.random() * 50);
         var duration = Math.floor(Math.random() * 10);
-        var size = 15 + 10 - duration;
-        el.innerHTML = '<span style="right:'+offset+'vw; font-size: '+size+'px; animation-duration:'+duration+'s">'+q.slice(-1)+'</span>';
-        setTimeout(function () {
-          updateElement(q);
-        }, duration * 1000);
-      };
-      updateElement(q);
-    });
-
-    chrome.omnibox.onInputEntered.addListener(function (q) {
-      chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        chrome.tabs.update(tabs[0].id, {url: 'https://google.com/search?q='+q});
-      });
-    });
+        var size = 15 + (10 - duration);
+        element.innerHTML = '<span style="right:'+offset+'vw; font-size: '+size+'px; animation-duration:'+duration+'s">'+character+'</span>';
+        window.setTimeout(function (element) {
+          element.parentNode.removeChild(element);
+        }, duration * 1000, element);
+      }
+    }, 1000);
   },
 
 };
