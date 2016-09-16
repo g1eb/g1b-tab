@@ -4,14 +4,10 @@
     "description": "Aesthetic alternative to the default new tab.",
     "version": "0.0.5",
     "manifest_version": 2,
-    "omnibox": {
-      "keyword": "\\"
-    },
     "chrome_url_overrides": {
       "newtab": "index.html"
     },
     "icons": {
-      "16": "images/icon.png",
       "128": "images/icon.png"
     },
     "web_accessible_resources": [
