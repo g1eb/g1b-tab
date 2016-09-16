@@ -24,7 +24,7 @@ var tab = {
 
   backgroundColor: window.localStorage.getItem('g1b.newTab.backgroundColor'),
 
-  backgroundColorInterval: window.localStorage.getItem('g1b.newTab.backgroundColorInterval') || 60000,
+  backgroundColorInterval: window.localStorage.getItem('g1b.newTab.backgroundColorInterval'),
 
   backgroundColorIntervalId: undefined,
 
@@ -45,7 +45,7 @@ var tab = {
       document.body.style.backgroundColor = tab.htmlColorCodes[Math.floor(Math.random() * tab.htmlColorCodes.length)];
       tab.backgroundColorIntervalId = window.setInterval(function () {
         document.body.style.backgroundColor = tab.htmlColorCodes[Math.floor(Math.random() * tab.htmlColorCodes.length)];
-      }, tab.backgroundColorInterval);
+      }, tab.backgroundColorInterval * 60000);
     }
   },
 
@@ -64,8 +64,9 @@ var tab = {
     document.body.addEventListener('mousedown', function (e) {
       if ( e.button === 0 ) {
         timeoutId = window.setTimeout(function () {
-          document.getElementById('backgroundColor').value = tab.backgroundColor;
           document.getElementById('brandingImage').value = tab.brandingImage;
+          document.getElementById('backgroundColor').value = tab.backgroundColor;
+          document.getElementById('backgroundColorInterval').value = tab.backgroundColorInterval;
           document.getElementById('settings').style.display = 'flex';
         }, 500);
       }
@@ -83,14 +84,20 @@ var tab = {
     });
     document.getElementById('btn--save').addEventListener('click', function () {
       tab.updateSettings(
+        document.getElementById('brandingImage').value,
         document.getElementById('backgroundColor').value,
-        document.getElementById('brandingImage').value
+        document.getElementById('backgroundColorInterval').value
       );
       document.getElementById('settings').style.display = 'none';
     });
   },
 
-  updateSettings: function (color, image) {
+  updateSettings: function (image, color, interval) {
+    if ( tab.backgroundColorInterval !== interval ) {
+      interval = (!interval) ? 1 : interval;
+      tab.backgroundColorInterval = interval;
+      window.localStorage.setItem('g1b.newTab.backgroundColorInterval', interval);
+    }
     if ( tab.backgroundColor !== color ) {
       tab.backgroundColor = color;
       window.localStorage.setItem('g1b.newTab.backgroundColor', color);
