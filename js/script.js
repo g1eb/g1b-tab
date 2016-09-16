@@ -93,6 +93,7 @@ var tab = {
       tab.setBackgroundColor(color);
     }
     if ( tab.brandingImage !== image ) {
+      tab.brandingImage = image;
       window.localStorage.setItem('g1b.newTab.brandingImage', image);
       tab.setBrandingImage(image);
     }
