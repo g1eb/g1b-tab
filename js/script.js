@@ -63,6 +63,8 @@ var tab = {
     var timeoutId;
     document.body.addEventListener('mousedown', function () {
       timeoutId = window.setTimeout(function () {
+        document.getElementById('backgroundColor').value = tab.backgroundColor;
+        document.getElementById('brandingImage').value = tab.brandingImage;
         document.getElementById('settings').style.display = 'flex';
       }, 500);
     });
