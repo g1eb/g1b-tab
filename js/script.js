@@ -79,6 +79,13 @@ var tab = {
         document.getElementById('settings').style.display = 'none';
       }
     });
+    document.getElementById('backgroundColor').addEventListener('input', function () {
+      if ( !document.getElementById('backgroundColor').value ) {
+        document.getElementById('backgroundColorIntervalWrapper').style.display = 'flex';
+      } else {
+        document.getElementById('backgroundColorIntervalWrapper').style.display = 'none';
+      }
+    });
     document.getElementById('btn--close').addEventListener('click', function () {
       document.getElementById('settings').style.display = 'none';
     });
