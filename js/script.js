@@ -71,6 +71,9 @@ var tab = {
         document.getElementById('settings').style.display = 'none';
       }
     });
+    document.getElementById('btn--close').addEventListener('click', function () {
+      document.getElementById('settings').style.display = 'none';
+    });
     document.getElementById('btn--save').addEventListener('click', function () {
       tab.updateSettings(
         document.getElementById('backgroundColor').value,
