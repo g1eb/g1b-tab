@@ -67,6 +67,7 @@ var tab = {
           document.getElementById('brandingImage').value = tab.brandingImage;
           document.getElementById('backgroundColor').value = tab.backgroundColor;
           document.getElementById('backgroundColorInterval').value = tab.backgroundColorInterval;
+          document.getElementById('backgroundColorIntervalWrapper').style.display = ( !tab.backgroundColor ) ? 'flex' : 'none';
           document.getElementById('settings').style.display = 'flex';
         }, 500);
       }
