@@ -26,7 +26,7 @@ var tab = {
 
   backgroundColor: window.localStorage.getItem('g1b.newTab.backgroundColor'),
 
-  backgroundColorInterval: window.localStorage.getItem('g1b.newTab.backgroundColorInterval'),
+  backgroundColorInterval: window.localStorage.getItem('g1b.newTab.backgroundColorInterval') || 1,
 
   backgroundColorIntervalId: undefined,
 
