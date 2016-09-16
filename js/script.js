@@ -71,7 +71,7 @@ var tab = {
         document.getElementById('settings').style.display = 'none';
       }
     });
-    document.getElementById('btn').addEventListener('click', function () {
+    document.getElementById('btn--save').addEventListener('click', function () {
       tab.updateSettings(
         document.getElementById('backgroundColor').value,
         document.getElementById('brandingImage').value

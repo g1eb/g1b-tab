@@ -97,7 +97,7 @@ div#settings input {
   border-style: solid;
 }
 
-div#settings .btn {
+div#settings .btn--save {
   padding: 10px;
   margin: 0;
   justify-content: center;
@@ -106,7 +106,7 @@ div#settings .btn {
   transition: background-color 0.5s ease-out;
 }
 
-div#settings .btn:hover {
+div#settings .btn--save:hover {
   cursor: pointer;
   color: #000000;
   border: 1px solid #000000;
