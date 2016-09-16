@@ -26,6 +26,8 @@ var tab = {
 
   backgroundColorInterval: window.localStorage.getItem('g1b.newTab.backgroundColorInterval') || 60000,
 
+  backgroundColorIntervalId: undefined,
+
   brandingImage: window.localStorage.getItem('g1b.newTab.brandingImage'),
 
   init: function () {
@@ -36,11 +38,12 @@ var tab = {
   },
 
   setBackgroundColor: function (color) {
+    window.clearInterval(tab.backgroundColorIntervalId);
     if ( color ) {
       document.body.style.backgroundColor = color;
     } else {
       document.body.style.backgroundColor = tab.htmlColorCodes[Math.floor(Math.random() * tab.htmlColorCodes.length)];
-      window.setInterval(function () {
+      tab.backgroundColorIntervalId = window.setInterval(function () {
         document.body.style.backgroundColor = tab.htmlColorCodes[Math.floor(Math.random() * tab.htmlColorCodes.length)];
       }, tab.backgroundColorInterval);
     }
@@ -85,6 +88,7 @@ var tab = {
 
   updateSettings: function (color, image) {
     if ( tab.backgroundColor !== color ) {
+      tab.backgroundColor = color;
       window.localStorage.setItem('g1b.newTab.backgroundColor', color);
       tab.setBackgroundColor(color);
     }
