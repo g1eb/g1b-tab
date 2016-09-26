@@ -66,11 +66,7 @@ var tab = {
     document.body.addEventListener('mousedown', function (e) {
       if ( e.button === 0 ) {
         timeoutId = window.setTimeout(function () {
-          document.getElementById('brandingImage').value = tab.brandingImage;
-          document.getElementById('backgroundColor').value = tab.backgroundColor;
-          document.getElementById('backgroundColorInterval').value = tab.backgroundColorInterval;
-          document.getElementById('backgroundColorIntervalWrapper').style.display = ( !tab.backgroundColor ) ? 'flex' : 'none';
-          document.getElementById('settings').style.display = 'flex';
+          tab.toggleSettingsMenu();
         }, 500);
       }
     });
@@ -79,7 +75,7 @@ var tab = {
     });
     document.body.addEventListener('keyup', function (e) {
       if ( e.keyCode === 27 ) {
-        document.getElementById('settings').style.display = 'none';
+        tab.toggleSettingsMenu();
       }
     });
     document.getElementById('backgroundColor').addEventListener('input', function () {
@@ -100,6 +96,18 @@ var tab = {
       );
       document.getElementById('settings').style.display = 'none';
     });
+  },
+
+  toggleSettingsMenu: function () {
+    if ( document.getElementById('settings').style.display === 'none' ) {
+      document.getElementById('brandingImage').value = tab.brandingImage;
+      document.getElementById('backgroundColor').value = tab.backgroundColor;
+      document.getElementById('backgroundColorInterval').value = tab.backgroundColorInterval;
+      document.getElementById('backgroundColorIntervalWrapper').style.display = ( !tab.backgroundColor ) ? 'flex' : 'none';
+      document.getElementById('settings').style.display = 'flex';
+    } else {
+      document.getElementById('settings').style.display = 'none';
+    }
   },
 
   updateSettings: function (image, color, interval) {
