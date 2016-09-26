@@ -85,9 +85,6 @@ var tab = {
         document.getElementById('backgroundColorIntervalWrapper').style.display = 'none';
       }
     });
-    document.getElementById('btn--close').addEventListener('click', function () {
-      document.getElementById('settings').style.display = 'none';
-    });
     document.getElementById('btn--save').addEventListener('click', function () {
       tab.updateSettings(
         document.getElementById('brandingImage').value,
