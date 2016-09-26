@@ -69,6 +69,11 @@ var tab = {
           tab.toggleSettingsMenu();
         }, 500);
       }
+      if ( document.getElementById('settings').style.display !== 'none' ) {
+        if ( !document.getElementById('settings').contains(e.target) ) {
+          tab.toggleSettingsMenu();
+        }
+      }
     });
     document.body.addEventListener('mouseup', function () {
       window.clearTimeout(timeoutId);
@@ -91,7 +96,7 @@ var tab = {
         document.getElementById('backgroundColor').value,
         document.getElementById('backgroundColorInterval').value
       );
-      document.getElementById('settings').style.display = 'none';
+      tab.toggleSettingsMenu();
     });
   },
 
