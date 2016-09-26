@@ -122,19 +122,19 @@ var tab = {
 
   initAnimation: function () {
     window.setInterval(function () {
-      for ( var i = 0; i < Math.floor(Math.random() * 15); i++ ) {
+      for ( var i = 0; i < Math.floor(Math.random() * 5); i++ ) {
         var element = document.createElement('span');
         document.body.appendChild(element);
         var character = tab.chars[Math.floor(Math.random() * tab.chars.length)];
-        var offset = Math.floor(Math.random() * 50);
-        var duration = Math.floor(Math.random() * 10);
-        var size = 15 + (10 - duration);
+        var duration = Math.floor(Math.random() * 15);
+        var offset = Math.floor(Math.random() * (45 - duration * 3)) + 3;
+        var size = 12 + (15 - duration);
         element.innerHTML = '<span style="right:'+offset+'vw; font-size: '+size+'px; animation-duration:'+duration+'s">'+character+'</span>';
         window.setTimeout(function (element) {
           element.parentNode.removeChild(element);
         }, duration * 1000, element);
       }
-    }, 1000);
+    }, 250);
   },
 
 };
