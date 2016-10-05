@@ -119,14 +119,14 @@ div#settings .settings-input--image input:focus ~ label,
 div#settings .settings-input--image input:valid ~ label,
 div#settings .settings-input--color input:focus ~ label,
 div#settings .settings-input--color input:valid ~ label {
-  font-size: 1em;
-  top: 0;
+  font-size: 14px;
+  top: 5%;
 }
 
 div#settings .btn--save {
   position: absolute;
   z-index: 5;
-  bottom: -75px;
+  bottom: -65px;
   left: 0;
   cursor: pointer;
   outline: none;
