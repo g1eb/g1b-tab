@@ -12,19 +12,17 @@
 </head>
 <body>
   <div id="settings">
-    <div>
-      <label for="brandingImage">Image</label>
-      <input id="brandingImage" type="text" placeholder="url" autocomplete="off" />
-    </div>
-    <div>
-      <label for="backgroundColor">Color</label>
-      <input id="backgroundColor" type="text" placeholder="hex/rgba/hsla" autocomplete="off" />
-    </div>
-    <div id="backgroundColorIntervalWrapper">
-      <label for="backgroundColorInterval">Interval</label>
-      <input id="backgroundColorInterval" type="number" min="1" placeholder="minutes" autocomplete="off" />
-    </div>
-    <div id="btn--save" class="btn--save">Save</div>
+    <form action="/" name="settings" novalidate>
+      <div class="settings-input--image">
+        <input id="settings-input-image" type="text" autocomplete="off" tabindex="1" required />
+        <label for="settings-input-image">Image url</label>
+      </div>
+      <div class="settings-input--color">
+        <input id="settings-input-color" type="text" autocomplete="off" tabindex="2" required />
+        <label for="settings-input-color">Color (hex/rgba/hsla)</label>
+      </div>
+      <button id="btn--save" class="btn--save" type="submit" tabindex="3">Save</button>
+    </form>
   </div>
   <img id="branding" alt="branding" />
 </body>
