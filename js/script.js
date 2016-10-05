@@ -139,7 +139,8 @@ var tab = {
         var duration = Math.floor(Math.random() * 15);
         var offset = Math.floor(Math.random() * (45 - duration * 3)) + 3;
         var size = 12 + (15 - duration);
-        element.innerHTML = '<span style="right:'+offset+'vw; font-size: '+size+'px; animation-duration:'+duration+'s">'+character+'</span>';
+        element.style.cssText = 'right:'+offset+'vw; font-size: '+size+'px; animation-duration:'+duration+'s';
+        element.innerHTML = character;
         window.setTimeout(function (element) {
           element.parentNode.removeChild(element);
         }, duration * 1000, element);
