@@ -26,7 +26,7 @@ var tab = {
 
   backgroundColor: window.localStorage.getItem('g1b.newTab.backgroundColor'),
 
-  backgroundColorInterval: window.localStorage.getItem('g1b.newTab.backgroundColorInterval'),
+  backgroundColorInterval: 60000, //millis
 
   backgroundColorIntervalId: undefined,
 
@@ -47,7 +47,7 @@ var tab = {
       document.body.style.backgroundColor = tab.htmlColorCodes[Math.floor(Math.random() * tab.htmlColorCodes.length)];
       tab.backgroundColorIntervalId = window.setInterval(function () {
         document.body.style.backgroundColor = tab.htmlColorCodes[Math.floor(Math.random() * tab.htmlColorCodes.length)];
-      }, tab.backgroundColorInterval * 60000 || 60000);
+      }, tab.backgroundColorInterval);
     }
   },
 
