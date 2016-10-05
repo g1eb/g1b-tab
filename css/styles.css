@@ -1,18 +1,16 @@
-html {
+body {
   margin: 0;
   padding: 0;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-}
-
-body {
   cursor: default;
   color: whitesmoke;
   font-family: 'Helvetica';
   text-shadow: 0 0 1px white;
   font-size: 18px;
   -webkit-user-select: none;
+  background-color: whitesmoke;
   will-change: backgrond-color;
   transition: background-color 5s ease-out;
 }
@@ -28,17 +26,20 @@ body {
 }
 
 span {
+  display: block;
+  z-index: 12341234;
   position: absolute;
   right: 25px;
   top: -50px;
+  transform: translateY(100vh);
   animation-name: move;
   animation-timing-function: ease-out;
-  animation-iteration-count: infinite;
+  will-change: transform;
+  will-change: opacity;
 }
 
 @keyframes move {
   0% {
-    top: 100vh;
     opacity: 0;
   }
   25% {
@@ -51,7 +52,7 @@ span {
     opacity: 0;
   }
   100% {
-    top: -25px;
+    transform: none;
     opacity: 0;
   }
 }
