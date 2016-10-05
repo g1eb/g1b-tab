@@ -11,8 +11,8 @@
       "128": "images/icon.png"
     },
     "web_accessible_resources": [
-        "js/script.js",
-        "css/styles.css",
+        "src/script.js",
+        "src/styles.css",
         "images/icon.png"
     ]
  }
