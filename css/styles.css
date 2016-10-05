@@ -131,7 +131,7 @@ div#settings .btn--save {
   cursor: pointer;
   outline: none;
   color: #777;
-  width: 200px;
+  width: 175px;
   height: 50px;
   font-size: 24px;
   box-sizing: border-box;
@@ -140,6 +140,8 @@ div#settings .btn--save {
   background-color: #efefef;
   transition: opacity 0.25s ease-out;
 }
-div#settings .btn--save:hover {
+div#settings .btn--save:hover,
+div#settings .btn--save:focus {
   color: #333;
+  background: #fff;
 }
