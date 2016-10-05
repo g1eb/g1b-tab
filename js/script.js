@@ -83,50 +83,34 @@ var tab = {
         tab.toggleSettingsMenu();
       }
     });
-    document.getElementById('backgroundColor').addEventListener('input', function () {
-      if ( !document.getElementById('backgroundColor').value ) {
-        document.getElementById('backgroundColorIntervalWrapper').style.display = 'flex';
-      } else {
-        document.getElementById('backgroundColorIntervalWrapper').style.display = 'none';
-      }
-    });
-    document.getElementById('btn--save').addEventListener('click', function () {
-      tab.updateSettings(
-        document.getElementById('brandingImage').value,
-        document.getElementById('backgroundColor').value,
-        document.getElementById('backgroundColorInterval').value
-      );
+    document.getElementById('btn--save').addEventListener('click', function (e) {
+      e.preventDefault();
+      tab.updateSettings(document.getElementById('settings-input-image').value, document.getElementById('settings-input-color').value);
       tab.toggleSettingsMenu();
+      return false;
     });
   },
 
   toggleSettingsMenu: function () {
     if ( document.getElementById('settings').style.display === 'none' ) {
-      document.getElementById('brandingImage').value = tab.brandingImage;
-      document.getElementById('backgroundColor').value = tab.backgroundColor;
-      document.getElementById('backgroundColorInterval').value = tab.backgroundColorInterval;
-      document.getElementById('backgroundColorIntervalWrapper').style.display = ( !tab.backgroundColor ) ? 'flex' : 'none';
+      document.getElementById('settings-input-image').value = tab.brandingImage;
+      document.getElementById('settings-input-color').value = tab.backgroundColor;
       document.getElementById('settings').style.display = 'flex';
     } else {
       document.getElementById('settings').style.display = 'none';
     }
   },
 
-  updateSettings: function (image, color, interval) {
-    if ( tab.backgroundColorInterval !== interval ) {
-      interval = (!interval) ? 1 : interval;
-      tab.backgroundColorInterval = interval;
-      window.localStorage.setItem('g1b.newTab.backgroundColorInterval', interval);
+  updateSettings: function (image, color) {
+    if ( tab.brandingImage !== image ) {
+      tab.brandingImage = image;
+      window.localStorage.setItem('g1b.newTab.brandingImage', image);
+      tab.setBrandingImage(image);
     }
     if ( tab.backgroundColor !== color ) {
       tab.backgroundColor = color;
       window.localStorage.setItem('g1b.newTab.backgroundColor', color);
       tab.setBackgroundColor(color);
-    }
-    if ( tab.brandingImage !== image ) {
-      tab.brandingImage = image;
-      window.localStorage.setItem('g1b.newTab.brandingImage', image);
-      tab.setBrandingImage(image);
     }
   },
 
