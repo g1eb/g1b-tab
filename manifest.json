@@ -1,7 +1,7 @@
 {
   "name": "G1B",
   "short_name": "G1B",
-  "description": "Aesthetic alternative to the default new tab.",
+  "description": "Replace the default new tab page with a clean and simple alternative.",
   "version": "0.0.9",
   "manifest_version": 3,
   "chrome_url_overrides": {
