@@ -8,7 +8,7 @@
     "newtab": "index.html"
   },
   "icons": {
-      "128": "images/icon.png"
+    "128": "images/icon.png"
   },
   "web_accessible_resources": [
     "src/script.js",
