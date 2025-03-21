@@ -11,8 +11,15 @@
     "128": "images/icon.png"
   },
   "web_accessible_resources": [
-    "src/script.js",
-    "src/styles.css",
-    "images/icon.png"
+    {
+      "resources": [
+        "src/script.js",
+        "src/styles.css",
+        "images/icon.png"
+      ],
+      "matches": [
+        "*://*/*"
+      ]
+    }
   ]
 }
