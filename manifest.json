@@ -2,7 +2,7 @@
   "name": "G1B",
   "short_name": "G1B",
   "description": "Clean and simple alternative to the default new tab page.",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "manifest_version": 3,
   "chrome_url_overrides": {
     "newtab": "index.html"
